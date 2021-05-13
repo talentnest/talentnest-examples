@@ -25,9 +25,15 @@ $(document).ready(function()
       return await tn_response.json();
     }
 
-    const client_name = 'goeasy';
-    const url = `https://${client_name}.talentnest.com/en/feed/latest`;
-    const json_raw_data = await get_raw_data(url);
+    // Sample static JSON data
+    const json_feed_url = 'https://raw.githubusercontent.com/talentnest/talentnest-examples/c41cdeb307249fc63675008efe704db725a04212/data/sample-job-feed.json';
+
+    // -------------------------------------------------------------------------------
+    // To get your feed, replace your-client-name
+    // const json_feed_url = `https://your-client-name.talentnest.com/en/feed/latest`;
+    // -------------------------------------------------------------------------------
+
+    const json_raw_data = await get_raw_data(json_feed_url);
 
     $.each(json_raw_data['jobs'], function(i, posting)
     {
